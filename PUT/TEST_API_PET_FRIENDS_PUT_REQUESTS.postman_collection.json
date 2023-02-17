@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "76dd9e51-9ef0-4f1a-b75d-8bc04aaf5453",
+		"name": "TEST_API_PET_FRIENDS_PUT_REQUESTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23711111"
+	},
+	"item": [
+		{
+			"name": "API_PETS_POSITIVE_TEST_CORRECT_HEADERS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test('Check Mishka', function () {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.name).to.eql('Mishka');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name ",
+							"value": "Mishka",
+							"type": "text"
+						},
+						{
+							"key": "animal_type",
+							"value": "Bear",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/pets/{{petid}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"pets",
+						"{{petid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "6d6108ccb0bd10a473080258731c0581d465a5ef3f47a46fb77121b9",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "auth_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://petfriends.skillfactory.ru/",
+			"type": "string"
+		},
+		{
+			"key": "petid",
+			"value": "0dcb84a7-d5b3-490b-9c6a-3f6bcb7bb746",
+			"type": "string"
+		}
+	]
+}

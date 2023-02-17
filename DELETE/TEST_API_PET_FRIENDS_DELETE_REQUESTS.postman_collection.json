@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "858378e8-0688-409c-95b5-469e2db136a7",
+		"name": "TEST_API_PET_FRIENDS_DELETE_REQUESTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23711111"
+	},
+	"item": [
+		{
+			"name": "API_PETS_DELETE_POSITIVE_DELETE_PET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Mishka del\", function () {\r",
+							"    var checkName = JSON.parse(responseBody);\r",
+							"    var lastName = \"Mishka\"\r",
+							"    pm.expect(pm.collectionVariables.get(\"name\")).to.not.eql(lastName);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/api/pets/{{petid}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"pets",
+						"{{petid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "6d6108ccb0bd10a473080258731c0581d465a5ef3f47a46fb77121b9",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "auth_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "pet_id",
+			"value": "0dcb84a7-d5b3-490b-9c6a-3f6bcb7bb746",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "https://petfriends.skillfactory.ru/",
+			"type": "string"
+		}
+	]
+}
